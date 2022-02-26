@@ -30,7 +30,7 @@ services:
         ELK_VERSION: ${ELK_VERSION}
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
-      - elasticsearch:/usr/share/elasticsearch/data:z
+      - /home/usera/elkdir/es/data:/usr/share/elasticsearch/data:z
     ports:
       - "9200:9200"
       - "9300:9300"
@@ -54,6 +54,7 @@ services:
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
+      - /home/usera/elkdir/logstash/data:/usr/share/logstash/data:z
     ports:
       - "5044:5044"
       - "5000:5000/tcp"
@@ -74,6 +75,7 @@ services:
         ELK_VERSION: ${ELK_VERSION}
     volumes:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,Z
+      - /home/usera/elkdir/kibana/data:/usr/share/kibana/data
     ports:
       - "5601:5601"
     environment:
