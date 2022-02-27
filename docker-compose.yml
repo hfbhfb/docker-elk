@@ -30,10 +30,10 @@ services:
         ELK_VERSION: ${ELK_VERSION}
     volumes:
       - ./elasticsearch/config/elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml:ro,z
-      - /home/usera/elkdir/es/data:/usr/share/elasticsearch/data
     ports:
       - "9200:9200"
       - "9300:9300"
+    restart: always
     environment:
       ES_JAVA_OPTS: -Xmx256m -Xms256m
       # Bootstrap password.
@@ -54,12 +54,12 @@ services:
     volumes:
       - ./logstash/config/logstash.yml:/usr/share/logstash/config/logstash.yml:ro,Z
       - ./logstash/pipeline:/usr/share/logstash/pipeline:ro,Z
-      - /home/usera/elkdir/logstash/data:/usr/share/logstash/data
     ports:
       - "5044:5044"
       - "5000:5000/tcp"
       - "5000:5000/udp"
       - "9600:9600"
+    restart: always
     environment:
       LS_JAVA_OPTS: -Xmx256m -Xms256m
       LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
@@ -75,9 +75,9 @@ services:
         ELK_VERSION: ${ELK_VERSION}
     volumes:
       - ./kibana/config/kibana.yml:/usr/share/kibana/config/kibana.yml:ro,Z
-      - /home/usera/elkdir/kibana/data:/usr/share/kibana/data
     ports:
       - "5601:5601"
+    restart: always
     environment:
       KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
     networks:
