@@ -7,7 +7,7 @@ server.host: 0.0.0.0
 elasticsearch.hosts: ["http://elasticsearch:9200"]
 monitoring.ui.container.elasticsearch.enabled: true
 
-i18n.locale: "zh-CN"
+#i18n.locale: "zh-CN"  #示例dashboard仪表盘出错,没找到数据...
 
 ## X-Pack security credentials
 #
