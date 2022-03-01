@@ -13,6 +13,9 @@ argument referencing the `filebeat-compose.yml` file:
 
 cd /home/usera/projects/go/mod-pro/docker-elk
 
+$ docker-compose rm -s
+$ docker-compose up -d
+
 docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml build
 
 docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml run filebeat
@@ -30,6 +33,8 @@ the help of the [Configuration reference][filebeat-config].
 Any change to the Filebeat configuration requires a restart of the Filebeat container:
 
 ```console
+$ docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml stop filebeat
+$ docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml up filebeat
 $ docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml restart filebeat
 ```
 
