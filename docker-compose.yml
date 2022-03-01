@@ -34,7 +34,7 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
-    restart: always
+    #restart: always
     environment:
       ES_JAVA_OPTS: -Xmx256m -Xms256m
       # Bootstrap password.
@@ -60,7 +60,7 @@ services:
       - "5000:5000/tcp"
       - "5000:5000/udp"
       - "9600:9600"
-    restart: always
+    #restart: always
     environment:
       LS_JAVA_OPTS: -Xmx256m -Xms256m
       LOGSTASH_INTERNAL_PASSWORD: ${LOGSTASH_INTERNAL_PASSWORD:-}
@@ -79,7 +79,7 @@ services:
       - /home/usera/elkdir/kibana/data:/usr/share/kibana/data:z
     ports:
       - "5601:5601"
-    restart: always
+    #restart: always
     environment:
       KIBANA_SYSTEM_PASSWORD: ${KIBANA_SYSTEM_PASSWORD:-}
     networks:
