@@ -17,6 +17,8 @@ docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml
 
 docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml run filebeat
 
+
+$ docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml rm -s
 $ docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml up -d
 ```
 
