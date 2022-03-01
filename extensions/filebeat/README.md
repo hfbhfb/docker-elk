@@ -10,7 +10,14 @@ To include Filebeat in the stack, run Docker Compose from the root of the reposi
 argument referencing the `filebeat-compose.yml` file:
 
 ```console
-$ docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml up
+
+cd /home/usera/projects/go/mod-pro/docker-elk
+
+docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml build
+
+docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml run filebeat
+
+$ docker-compose -f docker-compose.yml -f extensions/filebeat/filebeat-compose.yml up -d
 ```
 
 ## Configuring Filebeat
